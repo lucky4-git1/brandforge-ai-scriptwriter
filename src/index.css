@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* BrandForge Premium Feminine Theme */
+    --primary-pink: #FF7EB6;
+    --soft-pink: #FFD6E7;
+    --lavender: #DDA0FF;
+    --background: #FFF7FA;
+    --surface: #FFFFFF;
+    --text-primary: #4A3B45;
+    --text-secondary: #7A6670;
+    
+    /* Gradient definitions */
+    --gradient-primary: linear-gradient(135deg, #FF7EB6 0%, #DDA0FF 100%);
+    --gradient-soft: linear-gradient(135deg, #FFD6E7 0%, #FFF7FA 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 247, 250, 0.8) 100%);
+    
+    /* Shadow definitions */
+    --shadow-soft: 0 4px 20px rgba(255, 126, 182, 0.15);
+    --shadow-glass: 0 8px 32px rgba(255, 126, 182, 0.1);
+    --shadow-glow: 0 0 20px rgba(255, 126, 182, 0.3);
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Glass Card Component */
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    box-shadow: var(--shadow-glass);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  /* Premium Button */
+  .btn-premium {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-premium:active {
+    transform: translateY(0);
+  }
+  
+  /* Soft Input */
+  .input-soft {
+    background: white;
+    border: 2px solid var(--soft-pink);
+    border-radius: 16px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  .input-soft:focus {
+    outline: none;
+    border-color: var(--primary-pink);
+    box-shadow: 0 0 0 4px rgba(255, 126, 182, 0.1);
+  }
+  
+  /* Animated Gradient Background */
+  .gradient-bg {
+    background: linear-gradient(135deg, #FFF7FA 0%, #FFD6E7 50%, #FFF7FA 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Sparkle Animation */
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+  
+  .sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  /* Smooth Page Transition */
+  .page-transition {
+    animation: fadeIn 0.4s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+#line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@layer components {
+  .skeleton-pulse {
+    background-size: 200% 200%;
+    animation: gradientShift 2s ease infinite;
+  }
+}
